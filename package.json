@@ -8,10 +8,8 @@
   },
   "dependencies": {
     "docpad": "~6.54.5",
-    "docpad-plugin-marked": "~2.1.2",
     "docpad-plugin-jade": "~2.6.1",
-    "docpad-plugin-nodesass": "~2.1.1",
-    "docpad-plugin-livereload": "~2.5.3"
+    "docpad-plugin-nodesass": "~2.1.1"
   },
   "main": "node_modules/docpad/bin/docpad-server",
   "scripts": {
