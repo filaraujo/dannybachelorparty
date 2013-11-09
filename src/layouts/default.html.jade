@@ -6,7 +6,7 @@ html
 
     body(class="#{document.class|| ''}")
         div.page-sidebar
-            - each page in getCollection("html").findAll({isPage:true}).toJSON()
+            - each page in getCollection('html').findAllLive({isPage:true},[{order:1}]).toJSON()
                     a(href="#{page.url}", class="#{page.id === document.id ? 'is-active' : ''}")
                         | #{page.pageName}
 

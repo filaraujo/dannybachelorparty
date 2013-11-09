@@ -400,6 +400,14 @@ h2 {
     }
 }
 
+.details-actions {
+    border-top: 1px solid #eee;
+    height: 34px;
+    padding: 18px 20px 24px;
+    margin: 0 20px;
+    text-align: right;
+}
+
 .details-invited {
 
     .details-img {
@@ -421,6 +429,44 @@ h2 {
 
         &.danny {
             background-image: url(/images/danny.jpg);
+        }
+    }
+}
+
+.details-contact {
+    .info {
+        border-top: 1px solid #eee;
+        padding: 18px 0 24px;
+        margin: 0 1.4rem;
+
+        span {
+            display: block;
+            line-height: 20px;
+
+            &:before {
+                margin-right: 10px;
+            }
+        }
+    }
+
+
+    a {
+        border: 0;
+        color: #fff;
+        font-size: 1.2rem;
+        height: 34px;
+        text-transform: uppercase;
+        white-space: nowrap;
+        background: $pomegranate;
+        padding: 10px 24px;
+        margin-left: 1.2rem;
+        right: -20px;
+        text-decoration: none;
+
+        &:before {
+            font-size: 2rem;
+            margin-right: 1rem;
+            vertical-align: middle;
         }
     }
 }
