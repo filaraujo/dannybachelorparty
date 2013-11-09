@@ -400,14 +400,6 @@ h2 {
     }
 }
 
-.details-actions {
-    border-top: 1px solid #eee;
-    height: 34px;
-    padding: 18px 20px 24px;
-    margin: 0 20px;
-    text-align: right;
-}
-
 .details-invited {
 
     .details-img {
@@ -449,7 +441,6 @@ h2 {
         }
     }
 
-
     a {
         border: 0;
         color: #fff;
@@ -467,6 +458,21 @@ h2 {
             font-size: 2rem;
             margin-right: 1rem;
             vertical-align: middle;
+        }
+    }
+
+    .details-actions {
+        border-top: 1px solid #eee;
+        font-size: 1.4rem;
+        padding: 18px 20px 24px;
+        margin: 0 20px;
+        text-align: right;
+
+        span {
+            @media screen and (max-width: 480px){
+                display: block;
+                margin-bottom: 2rem;
+            }
         }
     }
 }
