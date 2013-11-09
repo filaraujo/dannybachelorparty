@@ -1,7 +1,10 @@
 (function(){
+    var $body = $('body');
 
-
-    $('body')
+    $body
+        .on('click', '.icon-list', function(){
+            $body.toggleClass('menu-open');
+        })
         .on('mouseover', '.agenda-event-actions', function(){
             var iframe = $(this).parents('.agenda-event').find('iframe'),
                 src = iframe.attr('src');

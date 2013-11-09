@@ -1,15 +1,24 @@
 html
     head
         title #{document.title}
-        link(href="http://fonts.googleapis.com/css?family=Cinzel+Decorative:400,700|Open+Sans:300,400,700", rel="stylesheet")
-        != getBlock("styles").add(["/styles/style.css"]).toHTML()
+        != getBlock("styles").add(["http://fonts.googleapis.com/css?family=Cinzel+Decorative:400,700|Open+Sans:300,400,700","/styles/style.css"]).toHTML()
 
-    body(class="#{document.class}")
-        header
-            test
-        section
-            | !{content}
-        footer
-            test
-        script(src="/vendor/jquery-2.0.3.min.js")
-        script(src="/scripts/app.js")
+
+    body(class="#{document.class|| ''}")
+        div.page-sidebar
+            - each page in getCollection("html").findAll({isPage:true}).toJSON()
+                    a(href="#{page.url}", class="#{page.id === document.id ? 'is-active' : ''}")
+                        | #{page.pageName}
+
+        div.page
+            header.page-nav
+                button.icon-list
+                span Bachelor Celebration
+                img(src="/images/profile.jpg")
+            section
+                | !{content}
+            footer
+                test
+        block scripts
+            script(src="/vendor/jquery-2.0.3.min.js")
+            != getBlock("scripts").add(document.scripts || []).toHTML()

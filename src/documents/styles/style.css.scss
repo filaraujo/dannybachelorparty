@@ -1,6 +1,8 @@
-@import '_normalize';
 @import 'bourbon';
+@import '_normalize';
+@import '_font';
 
+$midnightblue: #2c3e50;
 $wetasphault: #34495E;
 $asbestos: #7F8C8D;
 $clouds: #ECF0F1;
@@ -15,16 +17,18 @@ body {
 }
 html {
     font-size: 62.5%;
+    min-width: 320px;
 }
 
 body {
-    background: $clouds;
-    color: $asbestos;
     font-family: 'Open Sans';
     font-size: 1.6rem;
     font-weight: 300;
-    padding: 10vmin;
+    position: relative;
 
+    &.menu-open {
+        // overflow: hidden;
+    }
 }
 
 h1,
@@ -38,10 +42,21 @@ h6 {
     padding: 0;
 }
 
+a {
+    color: $pomegranate;
+}
+
 h1 {
-    color: $wetasphault;
+    color: $midnightblue;
     font-family: 'Cinzel Decorative';
+    font-size: 4rem;
     margin-bottom: 2rem;
+        font-weight: 400;
+
+    span {
+        font-size: 3rem;
+        letter-spacing: -2px;
+    }
 }
 
 h2 {
@@ -51,17 +66,113 @@ h2 {
     margin-bottom: 1.5rem;
 }
 
+.page {
+    background: $clouds;
+    color: $asbestos;
+    min-height: 100%;
+    // box-shadow: 0 0 20px rgba(0,0,0,.6);
+    @include transition(-moz-transform .16s);
+    @include transition(-webkit-transform .16s);
+    @include transition(transform .16s);
+    @include transform(translate3d(0,0,0));
+
+    .menu-open & {
+        @include transform(translate3d(200px,0,0));
+    }
+
+    > section {
+        padding: 40px 10vw 40px;
+    }
+}
+
+.page-nav {
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+    color: $midnightblue;
+    line-height: 6rem;
+    height: 6rem;
+
+    button {
+        background: transparent;
+        border: 0;
+        font-size: 4rem;
+        padding: 1rem;
+        vertical-align: top;
+    }
+
+    span {
+        font-size: 2rem;
+        font-weight: 400;
+    }
 
 
-// page
+    img {
+        float: right;
+        height: 40px;
+        width: 40px;
+        margin: 1rem;
+    }
+}
+
+.page-sidebar {
+    background: $midnightblue;
+    bottom: 0;
+        -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    left: 0;
+    padding: 80px 0;
+    position: absolute;
+    top: 0;
+    width: 200px;
+
+    &:before {
+        background: #fff;
+        bottom: 0;
+        box-shadow: 0 0 20px rgba(0,0,0,.6);
+        content: '';
+        width: 3px;
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+
+
+    a {
+        color: $concrete;
+        display: block;
+        font: 400 1.8rem/40px 'Cinzel Decorative';
+        padding: 0 20px;
+        position: relative;
+        text-decoration: none;
+        @include transition(color .2s);
+
+        &:hover {
+            color: #fff;
+        }
+
+        &.is-active {
+            background: $clouds;
+            border: 1px solid #fff;
+            border-width: 3px 0;
+            color: $wetasphault;
+            box-shadow: -4px 0 4px rgba(0,0,0,.6);
+        }
+    }
+
+}
+
+
+// agenda
 .agenda {
     font-weight: 300;
 }
 
 .agenda-day {
     h2 {
-        color: #cecece;
-        margin: 40px 0 6px;
+        clear: both;
+        color: rgba($concrete, .7);
+        border-bottom: 1px solid rgba($concrete, .2);
+        margin: 40px 0 10px;
         padding: 0;
 
         span {
@@ -72,18 +183,33 @@ h2 {
 
 .agenda-event {
     background: #fff;
-    border: 1px solid #ddd;
+        -moz-box-sizing: border-box;
+    box-sizing: border-box;
     color: $asbestos;
-    margin-bottom: 2rem;
+    margin: 2rem;
     position: relative;
     overflow: hidden;
 
+
+    @media screen and (min-width: 980px){
+        display: inline-block;
+        margin: 0 2vw 2vw;
+        width: 36vw;
+    }
+
+    @media screen and (min-width: 1400px){
+        display: inline-block;
+        margin: 0 1vw 1vw;
+        width: 25vw;
+    }
+
     h4 {
-        font-size: 1.6rem;
+        font-size: 1.8rem;
         font-weight: 300;
         padding: 24px 20px 18px;
 
         span {
+            color: $asbestos;
             float: right;
             font-size: 1.4rem;
         }
@@ -128,8 +254,8 @@ h2 {
 
 .agenda-event-img {
     border: 1px solid #eee;
+    border-width: 1px 0;
     height: 180px;
-    margin: 0 4px;
     position: relative;
 
     p {
@@ -218,11 +344,76 @@ h2 {
         background: $pomegranate;
         padding: 0 50px 0 24px;
         right: -20px;
+
+        &:before {
+            font-size: 2rem;
+            margin-right: 1rem;
+            vertical-align: middle;
+        }
     }
     button[title="close map"] {
         background: $wetasphault;
         padding: 0 24px 0 50px;
         left: 100%;
         margin-left: 20px;
+    }
+}
+
+.details {
+    margin-bottom: 2rem;
+
+    .details-post {
+        background: #fff;
+        overflow: auto;
+    }
+    h3 {
+        border-bottom: 1px solid $pomegranate;
+        padding: .8rem;
+        color: $pomegranate;
+        font-weight: 400;
+        box-shadow: 0 0 4px rgba(0,0,0,.1);
+    }
+    p {
+        font-size: 1.4rem;
+        margin: 1.5rem;
+
+        span {
+            color: $pomegranate;
+        }
+    }
+}
+
+.details-map {
+    height: 400px;
+
+    iframe {
+        border: 0;
+        height: 100%;
+        width: 100%;
+    }
+}
+
+.details-invited {
+
+    .details-img {
+        background-size: cover;
+        background-position: 50% 50%;
+        float: left;
+        border-right: 8px solid $clouds;
+        margin-right: 1.5rem;
+        width: 200px;
+        height: 400px;
+
+
+        @media screen and (max-width: 480px){
+            background-position: 50% 10%;
+            float: none;
+            height: 200px;
+            width: 100%;
+        }
+
+        &.danny {
+            background-image: url(/images/danny.jpg);
+        }
     }
 }
