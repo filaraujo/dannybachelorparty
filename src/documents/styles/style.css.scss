@@ -418,6 +418,10 @@ h2 {
             height: 200px;
             width: 100%;
         }
+        @media screen and (min-width: 920px){
+            background-position: 50% 20%;
+            width: 300px;
+        }
 
         &.danny {
             background-image: url(/images/danny.jpg);
