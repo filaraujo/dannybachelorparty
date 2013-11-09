@@ -1,0 +1,228 @@
+@import '_normalize';
+@import 'bourbon';
+
+$wetasphault: #34495E;
+$asbestos: #7F8C8D;
+$clouds: #ECF0F1;
+$concrete: #95A5A6;
+$pomegranate: #C0392B;
+
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+html {
+    font-size: 62.5%;
+}
+
+body {
+    background: $clouds;
+    color: $asbestos;
+    font-family: 'Open Sans';
+    font-size: 1.6rem;
+    font-weight: 300;
+    padding: 10vmin;
+
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 700;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    color: $wetasphault;
+    font-family: 'Cinzel Decorative';
+    margin-bottom: 2rem;
+}
+
+h2 {
+    font-family: 'Cinzel Decorative';
+    font-size: 1.8rem;
+    font-weight: 300;
+    margin-bottom: 1.5rem;
+}
+
+
+
+// page
+.agenda {
+    font-weight: 300;
+}
+
+.agenda-day {
+    h2 {
+        color: #cecece;
+        margin: 40px 0 6px;
+        padding: 0;
+
+        span {
+            font-weight: 400;
+        }
+    }
+}
+
+.agenda-event {
+    background: #fff;
+    border: 1px solid #ddd;
+    color: $asbestos;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+
+    h4 {
+        font-size: 1.6rem;
+        font-weight: 300;
+        padding: 24px 20px 18px;
+
+        span {
+            float: right;
+            font-size: 1.4rem;
+        }
+    }
+
+    &.is-exposed {
+        > div {
+            @include transform(translate3d(-100%,0,0));
+        }
+        iframe {
+            @include transform(translate3d(0,0,0));
+        }
+    }
+
+    > div {
+        background: #fff;
+        box-shadow: 0 0 3px rgba(0,0,0,.2);
+        @include transform(translate3d(0,0,0));
+        @include transition(all .6s);
+    }
+
+    iframe {
+        border: 0;
+        bottom: 0;
+        left: 0;
+        height: 100%;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 100%;
+        z-index: 0;
+        @include transform(translate3d(80%,0,0));
+        @include transition(all .6s);
+
+    }
+}
+
+.agenda-event-info {
+    font-size: 1.3rem;
+    padding: 18px 20px 24px;
+}
+
+.agenda-event-img {
+    border: 1px solid #eee;
+    height: 180px;
+    margin: 0 4px;
+    position: relative;
+
+    p {
+        bottom: 0;
+        border-top: 1px solid rgba(255,255,255,.3);
+        color: #fff;
+        font-size: 1.2rem;
+        font-weight: 400;
+        left: 0;
+        line-height: 40px;
+        margin: 0;
+        padding: 0 20px;
+        position: absolute;
+        text-transform: uppercase;
+        right: 0;
+        z-index: 1;
+
+        &:before {
+            background: rgba(#000, .6);
+            bottom: 0;
+            content: '';
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+            z-index: -1;
+            @include transition(background .3s)
+        }
+    }
+
+    &.amada,
+    &.allaspina,
+    &.barcade {
+        background-size: cover;
+        background-position: 50% 50%;
+    }
+
+    &.amada {
+        @media screen and (max-width: 719px){
+            background-image: url(/images/amada-mobile.jpg);
+        }
+        @media screen and (min-width: 720px){
+            background-image: url(/images/amada.jpg);
+            height: 240px;
+        }
+
+    }
+    &.allaspina {
+        @media screen and (max-width: 719px){
+            background-image: url(/images/allaspina-mobile.jpg);
+        }
+        @media screen and (min-width: 720px){
+            background-image: url(/images/allaspina.jpg);
+            height: 240px;
+        }
+    }
+    &.barcade {
+        @media screen and (max-width: 719px){
+            background-image: url(/images/barcade-mobile.jpg);
+        }
+        @media screen and (min-width: 720px){
+            background-image: url(/images/barcade.jpg);
+            height: 240px;
+        }
+    }
+}
+
+.agenda-event-actions {
+    border-top: 1px solid #eee;
+    height: 34px;
+    padding: 18px 20px 24px;
+    margin: 0 20px;
+    position: relative;
+
+    button {
+        border: 0;
+        color: #fff;
+        font-size: 1.2rem;
+        height: 34px;
+        position: absolute;
+        text-transform: uppercase;
+        white-space: nowrap;
+    }
+
+    button[title="view map"] {
+        background: $pomegranate;
+        padding: 0 50px 0 24px;
+        right: -20px;
+    }
+    button[title="close map"] {
+        background: $wetasphault;
+        padding: 0 24px 0 50px;
+        left: 100%;
+        margin-left: 20px;
+    }
+}
