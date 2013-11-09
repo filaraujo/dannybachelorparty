@@ -82,6 +82,10 @@ h2 {
 
     > section {
         padding: 40px 10vw 40px;
+
+        @media screen and (max-width: 480px){
+            padding: 40px 6vw 40px;
+        }
     }
 }
 
@@ -190,6 +194,9 @@ h2 {
     position: relative;
     overflow: hidden;
 
+    @media screen and (max-width: 480px){
+        margin: 2rem 0;
+    }
 
     @media screen and (min-width: 980px){
         display: inline-block;
@@ -204,7 +211,7 @@ h2 {
     }
 
     h4 {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
         font-weight: 300;
         padding: 24px 20px 18px;
 
