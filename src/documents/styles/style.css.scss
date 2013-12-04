@@ -300,7 +300,8 @@ h2 {
 
     &.amada,
     &.allaspina,
-    &.barcade {
+    &.barcade,
+    &.monaco {
         background-size: cover;
         background-position: 50% 50%;
     }
@@ -321,6 +322,16 @@ h2 {
         }
         @media screen and (min-width: 720px){
             background-image: url(/images/allaspina.jpg);
+            height: 240px;
+        }
+    }
+    &.monaco {
+        @media screen and (max-width: 719px){
+            background-position: 50% 50%;
+            background-image: url(/images/monaco-mobile.jpg);
+        }
+        @media screen and (min-width: 720px){
+            background-image: url(/images/monaco.jpg);
             height: 240px;
         }
     }
