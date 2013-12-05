@@ -302,7 +302,9 @@ h2 {
     &.amada,
     &.allaspina,
     &.barcade,
-    &.monaco {
+    &.monaco,
+    &.farmers,
+    &.triumph {
         background-size: cover;
         background-position: 50% 50%;
     }
@@ -326,13 +328,21 @@ h2 {
             height: 240px;
         }
     }
-    &.monaco {
+    &.farmers {
         @media screen and (max-width: 719px){
-            background-position: 50% 50%;
-            background-image: url(/images/monaco-mobile.jpg);
+            background-image: url(/images/farmers-mobile.jpg);
         }
         @media screen and (min-width: 720px){
-            background-image: url(/images/monaco.jpg);
+            background-image: url(/images/farmers.jpg);
+            height: 240px;
+        }
+    }
+    &.sassafras {
+        @media screen and (max-width: 719px){
+            background-image: url(/images/sassafras-mobile.jpg);
+        }
+        @media screen and (min-width: 720px){
+            background-image: url(/images/sassafras.jpg);
             height: 240px;
         }
     }
@@ -342,6 +352,24 @@ h2 {
         }
         @media screen and (min-width: 720px){
             background-image: url(/images/barcade.jpg);
+            height: 240px;
+        }
+    }
+    &.monaco {
+        @media screen and (max-width: 719px){
+            background-image: url(/images/monaco-mobile.jpg);
+        }
+        @media screen and (min-width: 720px){
+            background-image: url(/images/monaco.jpg);
+            height: 240px;
+        }
+    }
+    &.triumph {
+        @media screen and (max-width: 719px){
+            background-image: url(/images/triumph-mobile.jpg);
+        }
+        @media screen and (min-width: 720px){
+            background-image: url(/images/triumph.jpg);
             height: 240px;
         }
     }
@@ -410,6 +438,14 @@ h2 {
 .details-map {
     height: 400px;
 
+    iframe {
+        border: 0;
+        height: 100%;
+        width: 100%;
+    }
+}
+
+.details-directions {
     iframe {
         border: 0;
         height: 100%;
